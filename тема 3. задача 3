@@ -1,0 +1,22 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+double sumSeries() {
+    double sum = 0.0;
+    double term;
+    int k = 1;
+    do {
+        term = (23.0 / std::pow(2, k + 1)) + (std::pow(-1, k - 1) / std::pow(3, k + 1));
+        sum += term;
+        k++;
+    } while (std::fabs(term) > 1e-6);
+    return sum;
+}
+
+int main() {
+    double result = sumSeries();
+    std::cout << std::fixed << std::setprecision(6);
+    std::cout << "Сумма для задачи 3: " << result << std::endl;
+    return 0;
+}
